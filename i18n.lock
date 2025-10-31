@@ -41,6 +41,7 @@ checksums:
     fields.salary.frequency.yearly: f9f30b5789e5fc6adc712a19d411dcab
     fields.salary.isShownOnJobAd: 8e2a4378ab76347af34879c1e3766013
     fields.language: 0a8f7cdeb3c6ffeca70cbcca08ba9556
+    fields.category: 0c9b0bbb47e8a11604c0869c844acefb
     fields.contact: 2a24c9f5a791a6472788eb50d2fb9ccb
     fields.contact.email: 8c7ba7f7e40a8c848fc45ac8af985b81
     fields.contact.phone: 4514bfd097e5ea5fc6d7cd1190e791ad

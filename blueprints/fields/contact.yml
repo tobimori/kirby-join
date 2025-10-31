@@ -1,0 +1,12 @@
+label: join.fields.contact
+type: object
+fields:
+  name:
+    label: join.fields.contact.name
+    type: text
+  email:
+    label: join.fields.contact.email
+    type: email
+  position:
+    label: join.fields.contact.position
+    type: text

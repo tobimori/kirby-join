@@ -30,7 +30,11 @@ App::plugin(
 			'join/fields/office' => __DIR__ . '/blueprints/fields/office.yml',
 			'join/fields/country' => __DIR__ . '/blueprints/fields/country.yml',
 			'join/fields/seniority-level' =>  __DIR__ . '/blueprints/fields/seniority-level.yml',
-			'join/fields/employment-type' => require __DIR__ . '/blueprints/fields/employment-type.php',
+			'join/fields/employment-type' => __DIR__ . '/blueprints/fields/employment-type.yml',
+			'join/fields/salary' => __DIR__ . '/blueprints/fields/salary.yml',
+			'join/fields/category' => __DIR__ . '/blueprints/fields/category.yml',
+			'join/fields/language' => __DIR__ . '/blueprints/fields/language.yml',
+			'join/fields/contact' => __DIR__ . '/blueprints/fields/contact.yml',
 		],
 		'pageModels' => [
 			'join-job' =>  \tobimori\Join\Models\JobPage::class

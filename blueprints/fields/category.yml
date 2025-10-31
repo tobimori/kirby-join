@@ -1,0 +1,11 @@
+# we get a numerical ID from the api and then must track the categories manually
+# this request can be cached forever (until manual deletion)
+# @see https://docs.join.com/reference/getcategories
+
+label: join.fields.category
+type: select
+options:
+  type: query
+  query: page.getCategories
+  value: "{{ item.value }}"
+  text: "{{ item.text }}"

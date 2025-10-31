@@ -1,0 +1,369 @@
+label: join.fields.language
+type: select
+options:
+  aa:
+    "*": join.languages.aa
+  ab:
+    "*": join.languages.ab
+  ae:
+    "*": join.languages.ae
+  af:
+    "*": join.languages.af
+  ak:
+    "*": join.languages.ak
+  am:
+    "*": join.languages.am
+  an:
+    "*": join.languages.an
+  ar:
+    "*": join.languages.ar
+  as:
+    "*": join.languages.as
+  av:
+    "*": join.languages.av
+  ay:
+    "*": join.languages.ay
+  az:
+    "*": join.languages.az
+  ba:
+    "*": join.languages.ba
+  be:
+    "*": join.languages.be
+  bg:
+    "*": join.languages.bg
+  bi:
+    "*": join.languages.bi
+  bm:
+    "*": join.languages.bm
+  bn:
+    "*": join.languages.bn
+  bo:
+    "*": join.languages.bo
+  br:
+    "*": join.languages.br
+  bs:
+    "*": join.languages.bs
+  ca:
+    "*": join.languages.ca
+  ce:
+    "*": join.languages.ce
+  ch:
+    "*": join.languages.ch
+  co:
+    "*": join.languages.co
+  cr:
+    "*": join.languages.cr
+  cs:
+    "*": join.languages.cs
+  cu:
+    "*": join.languages.cu
+  cv:
+    "*": join.languages.cv
+  cy:
+    "*": join.languages.cy
+  da:
+    "*": join.languages.da
+  de:
+    "*": join.languages.de
+  dv:
+    "*": join.languages.dv
+  dz:
+    "*": join.languages.dz
+  ee:
+    "*": join.languages.ee
+  el:
+    "*": join.languages.el
+  en:
+    "*": join.languages.en
+  eo:
+    "*": join.languages.eo
+  es:
+    "*": join.languages.es
+  et:
+    "*": join.languages.et
+  eu:
+    "*": join.languages.eu
+  fa:
+    "*": join.languages.fa
+  ff:
+    "*": join.languages.ff
+  fi:
+    "*": join.languages.fi
+  fj:
+    "*": join.languages.fj
+  fo:
+    "*": join.languages.fo
+  fr:
+    "*": join.languages.fr
+  fy:
+    "*": join.languages.fy
+  ga:
+    "*": join.languages.ga
+  gd:
+    "*": join.languages.gd
+  gl:
+    "*": join.languages.gl
+  gn:
+    "*": join.languages.gn
+  gu:
+    "*": join.languages.gu
+  gv:
+    "*": join.languages.gv
+  ha:
+    "*": join.languages.ha
+  he:
+    "*": join.languages.he
+  hi:
+    "*": join.languages.hi
+  ho:
+    "*": join.languages.ho
+  hr:
+    "*": join.languages.hr
+  ht:
+    "*": join.languages.ht
+  hu:
+    "*": join.languages.hu
+  hy:
+    "*": join.languages.hy
+  hz:
+    "*": join.languages.hz
+  ia:
+    "*": join.languages.ia
+  id:
+    "*": join.languages.id
+  ie:
+    "*": join.languages.ie
+  ig:
+    "*": join.languages.ig
+  ii:
+    "*": join.languages.ii
+  ik:
+    "*": join.languages.ik
+  io:
+    "*": join.languages.io
+  is:
+    "*": join.languages.is
+  it:
+    "*": join.languages.it
+  iu:
+    "*": join.languages.iu
+  ja:
+    "*": join.languages.ja
+  jv:
+    "*": join.languages.jv
+  ka:
+    "*": join.languages.ka
+  kg:
+    "*": join.languages.kg
+  ki:
+    "*": join.languages.ki
+  kj:
+    "*": join.languages.kj
+  kk:
+    "*": join.languages.kk
+  kl:
+    "*": join.languages.kl
+  km:
+    "*": join.languages.km
+  kn:
+    "*": join.languages.kn
+  ko:
+    "*": join.languages.ko
+  kr:
+    "*": join.languages.kr
+  ks:
+    "*": join.languages.ks
+  ku:
+    "*": join.languages.ku
+  kv:
+    "*": join.languages.kv
+  kw:
+    "*": join.languages.kw
+  ky:
+    "*": join.languages.ky
+  la:
+    "*": join.languages.la
+  lb:
+    "*": join.languages.lb
+  lg:
+    "*": join.languages.lg
+  li:
+    "*": join.languages.li
+  ln:
+    "*": join.languages.ln
+  lo:
+    "*": join.languages.lo
+  lt:
+    "*": join.languages.lt
+  lu:
+    "*": join.languages.lu
+  lv:
+    "*": join.languages.lv
+  mg:
+    "*": join.languages.mg
+  mh:
+    "*": join.languages.mh
+  mi:
+    "*": join.languages.mi
+  mk:
+    "*": join.languages.mk
+  ml:
+    "*": join.languages.ml
+  mn:
+    "*": join.languages.mn
+  mr:
+    "*": join.languages.mr
+  ms:
+    "*": join.languages.ms
+  mt:
+    "*": join.languages.mt
+  my:
+    "*": join.languages.my
+  na:
+    "*": join.languages.na
+  nb:
+    "*": join.languages.nb
+  nd:
+    "*": join.languages.nd
+  ne:
+    "*": join.languages.ne
+  ng:
+    "*": join.languages.ng
+  nl:
+    "*": join.languages.nl
+  nn:
+    "*": join.languages.nn
+  no:
+    "*": join.languages.no
+  nr:
+    "*": join.languages.nr
+  nv:
+    "*": join.languages.nv
+  ny:
+    "*": join.languages.ny
+  oc:
+    "*": join.languages.oc
+  oj:
+    "*": join.languages.oj
+  om:
+    "*": join.languages.om
+  or:
+    "*": join.languages.or
+  os:
+    "*": join.languages.os
+  pa:
+    "*": join.languages.pa
+  pi:
+    "*": join.languages.pi
+  pl:
+    "*": join.languages.pl
+  ps:
+    "*": join.languages.ps
+  pt:
+    "*": join.languages.pt
+  qu:
+    "*": join.languages.qu
+  rm:
+    "*": join.languages.rm
+  rn:
+    "*": join.languages.rn
+  ro:
+    "*": join.languages.ro
+  ru:
+    "*": join.languages.ru
+  rw:
+    "*": join.languages.rw
+  sa:
+    "*": join.languages.sa
+  sc:
+    "*": join.languages.sc
+  sd:
+    "*": join.languages.sd
+  se:
+    "*": join.languages.se
+  sg:
+    "*": join.languages.sg
+  si:
+    "*": join.languages.si
+  sk:
+    "*": join.languages.sk
+  sl:
+    "*": join.languages.sl
+  sm:
+    "*": join.languages.sm
+  sn:
+    "*": join.languages.sn
+  so:
+    "*": join.languages.so
+  sq:
+    "*": join.languages.sq
+  sr:
+    "*": join.languages.sr
+  ss:
+    "*": join.languages.ss
+  st:
+    "*": join.languages.st
+  su:
+    "*": join.languages.su
+  sv:
+    "*": join.languages.sv
+  sw:
+    "*": join.languages.sw
+  ta:
+    "*": join.languages.ta
+  te:
+    "*": join.languages.te
+  tg:
+    "*": join.languages.tg
+  th:
+    "*": join.languages.th
+  ti:
+    "*": join.languages.ti
+  tk:
+    "*": join.languages.tk
+  tl:
+    "*": join.languages.tl
+  tn:
+    "*": join.languages.tn
+  to:
+    "*": join.languages.to
+  tr:
+    "*": join.languages.tr
+  ts:
+    "*": join.languages.ts
+  tt:
+    "*": join.languages.tt
+  tw:
+    "*": join.languages.tw
+  ty:
+    "*": join.languages.ty
+  ug:
+    "*": join.languages.ug
+  uk:
+    "*": join.languages.uk
+  ur:
+    "*": join.languages.ur
+  uz:
+    "*": join.languages.uz
+  ve:
+    "*": join.languages.ve
+  vi:
+    "*": join.languages.vi
+  vo:
+    "*": join.languages.vo
+  wa:
+    "*": join.languages.wa
+  wo:
+    "*": join.languages.wo
+  xh:
+    "*": join.languages.xh
+  yi:
+    "*": join.languages.yi
+  yo:
+    "*": join.languages.yo
+  za:
+    "*": join.languages.za
+  zh:
+    "*": join.languages.zh
+  zu:
+    "*": join.languages.zu

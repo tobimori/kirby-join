@@ -1,0 +1,38 @@
+label: join.fields.salary
+type: object
+fields:
+  from:
+    label: join.fields.salary.from
+    type: number
+  to:
+    label: join.fields.salary.to
+    type: number
+  currency:
+    label: join.fields.salary.currency
+    type: select
+    options:
+      EUR:
+        "*": join.fields.salary.currency.eur
+      CHF:
+        "*": join.fields.salary.currency.chf
+      USD:
+        "*": join.fields.salary.currency.usd
+      GBP:
+        "*": join.fields.salary.currency.gbp
+  frequency:
+    label: join.fields.salary.frequency
+    type: select
+    options:
+      HOURLY:
+        "*": join.fields.salary.frequency.hourly
+      DAILY:
+        "*": join.fields.salary.frequency.daily
+      WEEKLY:
+        "*": join.fields.salary.frequency.weekly
+      MONTHLY:
+        "*": join.fields.salary.frequency.monthly
+      YEARLY:
+        "*": join.fields.salary.frequency.yearly
+  isShownOnJobAd:
+    label: join.fields.salary.isShownOnJobAd
+    type: toggle

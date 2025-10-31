@@ -68,26 +68,35 @@ columns:
               "*": join.fields.remoteType.anywhere
         when:
           workplaceType: REMOTE
-      office:
-        extends: join/fields/office
-        disabled: true
-      employmentType:
-        extends: join/fields/employment-type
-        disabled: true
-        width: 1/2
-      seniority:
-        extends: join/fields/seniority-level
-        disabled: true
-        width: 1/2
-      salary: join/fields/salary
       category:
         extends: join/fields/category
         disabled: true
+      office:
+        extends: join/fields/office
         width: 1/2
-      language: join/fields/language
-      contact: join/fields/contact
+        disabled: true
+      salary:
+        extends: join/fields/salary
+        disabled: true
+        width: 1/2
+      employmentType:
+        extends: join/fields/employment-type
+        disabled: true
+        width: 1/3
+      seniority:
+        extends: join/fields/seniority-level
+        disabled: true
+        width: 1/3
+      language:
+        extends: join/fields/language
+        disabled: true
+        width: 1/3
+      contact:
+        extends: join/fields/contact
+        disabled: true
 
   - width: 1/3
+    sticky: true
     fields:
       id:
         type: text

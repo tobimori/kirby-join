@@ -7,3 +7,5 @@ type: select
 options:
   type: query
   query: page.getSeniorityLevels
+  value: "{{ item.value }}"
+  text: "{{ item.text }}"

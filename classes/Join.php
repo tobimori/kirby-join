@@ -4,12 +4,13 @@ namespace tobimori\Join;
 
 use Kirby\Data\Json;
 use Kirby\Cms\App;
+use Kirby\Cache\Cache;
 use Kirby\Exception\Exception;
 use Kirby\Http\Remote;
 
 final class Join
 {
-	protected static const string BASE_API_URL = 'https://api.join.com/v2/';
+	protected const string BASE_API_URL = 'https://api.join.com/v2/';
 
 	/**
 	 * Returns the user agent string for the plugin
@@ -40,20 +41,12 @@ final class Join
 	 */
 	public static function request(string $method = "GET", string $endpoint, array $data = [], array $query = [])
 	{
-
-		ray($endpoint);
-
 		$apiKey = self::option('apiKey');
 		if (!$apiKey) {
 			throw new Exception('[JOIN for Kirby] API key not set, please set tobimori.join.apiKey');
 		}
 
-
 		$url = self::BASE_API_URL . trim($endpoint, '/');
-
-		ray($url);
-
-		// add query parameters to url
 		if (!empty($query)) {
 			$url .= '?' . http_build_query($query);
 		}
@@ -67,7 +60,6 @@ final class Join
 			]
 		];
 
-		// only stringify and add data for non-GET requests
 		if ($method !== 'GET' && !empty($data)) {
 			$options['data'] = Json::encode($data);
 		}
@@ -115,5 +107,67 @@ final class Join
 	public static function delete(string $endpoint, array $query = [])
 	{
 		return self::request('DELETE', $endpoint, [], $query);
+	}
+
+	/**
+	 * Get the cache instance
+	 */
+	public static function cache(): Cache
+	{
+		return App::instance()->cache('tobimori.join');
+	}
+
+	/**
+	 * Get a value from cache
+	 */
+	public static function cacheGet(string $key, mixed $default = null): mixed
+	{
+		return self::cache()->get($key, $default);
+	}
+
+	/**
+	 * Set a value in cache
+	 */
+	public static function cacheSet(string $key, mixed $value, int $minutes = 60): bool
+	{
+		return self::cache()->set($key, $value, $minutes);
+	}
+
+	/**
+	 * Remove a value from cache
+	 */
+	public static function cacheRemove(string $key): bool
+	{
+		return self::cache()->remove($key);
+	}
+
+	/**
+	 * Clear all cache entries
+	 */
+	public static function cacheFlush(): bool
+	{
+		return self::cache()->flush();
+	}
+
+	/**
+	 * Check if a cache key exists
+	 */
+	public static function cacheExists(string $key): bool
+	{
+		return self::cache()->exists($key);
+	}
+
+	/**
+	 * Get or set a cache value with a callback
+	 */
+	public static function cacheRemember(string $key, int $minutes, callable $callback): mixed
+	{
+		if (self::cacheExists($key)) {
+			return self::cacheGet($key);
+		}
+
+		$value = $callback();
+		self::cacheSet($key, $value, $minutes);
+		return $value;
 	}
 }

@@ -1,0 +1,9 @@
+# we get a numerical ID from the api and then must track the seniority levels manually
+# this request can be cached forever (until manual deletion)
+# @see https://docs.join.com/reference/getsenioritylevels
+
+label: join.fields.seniorityLevel
+type: select
+options:
+  type: query
+  query: page.getSeniorityLevels

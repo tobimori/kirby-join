@@ -1,6 +1,12 @@
 <?php
 
+@include_once __DIR__ . '/vendor/autoload.php';
+
 use Kirby\Cms\App;
+use Kirby\Data\Json;
+use Kirby\Toolkit\A;
+use Kirby\Filesystem\Dir;
+use Kirby\Filesystem\F;
 
 if (
 	version_compare(App::version() ?? '0.0.0', '5.0.0', '<=') === true ||
@@ -19,9 +25,14 @@ App::plugin(
 		],
 		'permissions' => [],
 		'blueprints' => [
-			'join-job' => __DIR__ . '/blueprints/job.yml',
+			'pages/join-job' => __DIR__ . '/blueprints/job.yml',
+			'join/fields/writer' => __DIR__ . '/blueprints/fields/writer.yml',
+			'join/fields/office' => __DIR__ . '/blueprints/fields/office.yml',
+			'join/fields/country' => __DIR__ . '/blueprints/fields/country.yml',
+			'join/fields/seniority-level' =>  __DIR__ . '/blueprints/fields/seniority-level.yml',
+			'join/fields/employment-type' => require __DIR__ . '/blueprints/fields/employment-type.php',
 		],
-		'models' => [
+		'pageModels' => [
 			'join-job' =>  \tobimori\Join\Models\JobPage::class
 		],
 		'translations' => A::keyBy(

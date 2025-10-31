@@ -1,0 +1,27 @@
+label: join.fields.office
+type: object
+fields:
+  id:
+    label: join.fields.office.id
+    type: text
+  name:
+    label: join.fields.office.name
+    type: text
+  streetName:
+    label: join.fields.office.streetName
+    type: text
+  streetNumber:
+    label: join.fields.office.streetNumber
+    type: text
+  postalCode:
+    label: join.fields.office.postalCode
+    type: text
+  city:
+    label: join.fields.office.city
+    type: text
+  countryIso:
+    label: join.fields.office.country
+    extends: join/fields/country
+  isDefault:
+    label: join.fields.office.isDefault
+    type: toggle

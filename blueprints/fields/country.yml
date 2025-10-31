@@ -1,0 +1,501 @@
+label: join.fields.country
+type: select
+options:
+  ad:
+    "*": join.countries.ad
+  ae:
+    "*": join.countries.ae
+  af:
+    "*": join.countries.af
+  ag:
+    "*": join.countries.ag
+  ai:
+    "*": join.countries.ai
+  al:
+    "*": join.countries.al
+  am:
+    "*": join.countries.am
+  ao:
+    "*": join.countries.ao
+  aq:
+    "*": join.countries.aq
+  ar:
+    "*": join.countries.ar
+  as:
+    "*": join.countries.as
+  at:
+    "*": join.countries.at
+  au:
+    "*": join.countries.au
+  aw:
+    "*": join.countries.aw
+  ax:
+    "*": join.countries.ax
+  az:
+    "*": join.countries.az
+  ba:
+    "*": join.countries.ba
+  bb:
+    "*": join.countries.bb
+  bd:
+    "*": join.countries.bd
+  be:
+    "*": join.countries.be
+  bf:
+    "*": join.countries.bf
+  bg:
+    "*": join.countries.bg
+  bh:
+    "*": join.countries.bh
+  bi:
+    "*": join.countries.bi
+  bj:
+    "*": join.countries.bj
+  bl:
+    "*": join.countries.bl
+  bm:
+    "*": join.countries.bm
+  bn:
+    "*": join.countries.bn
+  bo:
+    "*": join.countries.bo
+  bq:
+    "*": join.countries.bq
+  br:
+    "*": join.countries.br
+  bs:
+    "*": join.countries.bs
+  bt:
+    "*": join.countries.bt
+  bv:
+    "*": join.countries.bv
+  bw:
+    "*": join.countries.bw
+  by:
+    "*": join.countries.by
+  bz:
+    "*": join.countries.bz
+  ca:
+    "*": join.countries.ca
+  cc:
+    "*": join.countries.cc
+  cd:
+    "*": join.countries.cd
+  cf:
+    "*": join.countries.cf
+  cg:
+    "*": join.countries.cg
+  ch:
+    "*": join.countries.ch
+  ci:
+    "*": join.countries.ci
+  ck:
+    "*": join.countries.ck
+  cl:
+    "*": join.countries.cl
+  cm:
+    "*": join.countries.cm
+  cn:
+    "*": join.countries.cn
+  co:
+    "*": join.countries.co
+  cr:
+    "*": join.countries.cr
+  cu:
+    "*": join.countries.cu
+  cv:
+    "*": join.countries.cv
+  cw:
+    "*": join.countries.cw
+  cx:
+    "*": join.countries.cx
+  cy:
+    "*": join.countries.cy
+  cz:
+    "*": join.countries.cz
+  de:
+    "*": join.countries.de
+  dj:
+    "*": join.countries.dj
+  dk:
+    "*": join.countries.dk
+  dm:
+    "*": join.countries.dm
+  do:
+    "*": join.countries.do
+  dz:
+    "*": join.countries.dz
+  ec:
+    "*": join.countries.ec
+  ee:
+    "*": join.countries.ee
+  eg:
+    "*": join.countries.eg
+  eh:
+    "*": join.countries.eh
+  er:
+    "*": join.countries.er
+  es:
+    "*": join.countries.es
+  et:
+    "*": join.countries.et
+  fi:
+    "*": join.countries.fi
+  fj:
+    "*": join.countries.fj
+  fk:
+    "*": join.countries.fk
+  fm:
+    "*": join.countries.fm
+  fo:
+    "*": join.countries.fo
+  fr:
+    "*": join.countries.fr
+  ga:
+    "*": join.countries.ga
+  gb:
+    "*": join.countries.gb
+  gd:
+    "*": join.countries.gd
+  ge:
+    "*": join.countries.ge
+  gf:
+    "*": join.countries.gf
+  gg:
+    "*": join.countries.gg
+  gh:
+    "*": join.countries.gh
+  gi:
+    "*": join.countries.gi
+  gl:
+    "*": join.countries.gl
+  gm:
+    "*": join.countries.gm
+  gn:
+    "*": join.countries.gn
+  gp:
+    "*": join.countries.gp
+  gq:
+    "*": join.countries.gq
+  gr:
+    "*": join.countries.gr
+  gs:
+    "*": join.countries.gs
+  gt:
+    "*": join.countries.gt
+  gu:
+    "*": join.countries.gu
+  gw:
+    "*": join.countries.gw
+  gy:
+    "*": join.countries.gy
+  hk:
+    "*": join.countries.hk
+  hm:
+    "*": join.countries.hm
+  hn:
+    "*": join.countries.hn
+  hr:
+    "*": join.countries.hr
+  ht:
+    "*": join.countries.ht
+  hu:
+    "*": join.countries.hu
+  id:
+    "*": join.countries.id
+  ie:
+    "*": join.countries.ie
+  il:
+    "*": join.countries.il
+  im:
+    "*": join.countries.im
+  in:
+    "*": join.countries.in
+  io:
+    "*": join.countries.io
+  iq:
+    "*": join.countries.iq
+  ir:
+    "*": join.countries.ir
+  is:
+    "*": join.countries.is
+  it:
+    "*": join.countries.it
+  je:
+    "*": join.countries.je
+  jm:
+    "*": join.countries.jm
+  jo:
+    "*": join.countries.jo
+  jp:
+    "*": join.countries.jp
+  ke:
+    "*": join.countries.ke
+  kg:
+    "*": join.countries.kg
+  kh:
+    "*": join.countries.kh
+  ki:
+    "*": join.countries.ki
+  km:
+    "*": join.countries.km
+  kn:
+    "*": join.countries.kn
+  kp:
+    "*": join.countries.kp
+  kr:
+    "*": join.countries.kr
+  kw:
+    "*": join.countries.kw
+  ky:
+    "*": join.countries.ky
+  kz:
+    "*": join.countries.kz
+  la:
+    "*": join.countries.la
+  lb:
+    "*": join.countries.lb
+  lc:
+    "*": join.countries.lc
+  li:
+    "*": join.countries.li
+  lk:
+    "*": join.countries.lk
+  lr:
+    "*": join.countries.lr
+  ls:
+    "*": join.countries.ls
+  lt:
+    "*": join.countries.lt
+  lu:
+    "*": join.countries.lu
+  lv:
+    "*": join.countries.lv
+  ly:
+    "*": join.countries.ly
+  ma:
+    "*": join.countries.ma
+  mc:
+    "*": join.countries.mc
+  md:
+    "*": join.countries.md
+  me:
+    "*": join.countries.me
+  mf:
+    "*": join.countries.mf
+  mg:
+    "*": join.countries.mg
+  mh:
+    "*": join.countries.mh
+  mk:
+    "*": join.countries.mk
+  ml:
+    "*": join.countries.ml
+  mm:
+    "*": join.countries.mm
+  mn:
+    "*": join.countries.mn
+  mo:
+    "*": join.countries.mo
+  mp:
+    "*": join.countries.mp
+  mq:
+    "*": join.countries.mq
+  mr:
+    "*": join.countries.mr
+  ms:
+    "*": join.countries.ms
+  mt:
+    "*": join.countries.mt
+  mu:
+    "*": join.countries.mu
+  mv:
+    "*": join.countries.mv
+  mw:
+    "*": join.countries.mw
+  mx:
+    "*": join.countries.mx
+  my:
+    "*": join.countries.my
+  mz:
+    "*": join.countries.mz
+  na:
+    "*": join.countries.na
+  nc:
+    "*": join.countries.nc
+  ne:
+    "*": join.countries.ne
+  nf:
+    "*": join.countries.nf
+  ng:
+    "*": join.countries.ng
+  ni:
+    "*": join.countries.ni
+  nl:
+    "*": join.countries.nl
+  no:
+    "*": join.countries.no
+  np:
+    "*": join.countries.np
+  nr:
+    "*": join.countries.nr
+  nu:
+    "*": join.countries.nu
+  nz:
+    "*": join.countries.nz
+  om:
+    "*": join.countries.om
+  pa:
+    "*": join.countries.pa
+  pe:
+    "*": join.countries.pe
+  pf:
+    "*": join.countries.pf
+  pg:
+    "*": join.countries.pg
+  ph:
+    "*": join.countries.ph
+  pk:
+    "*": join.countries.pk
+  pl:
+    "*": join.countries.pl
+  pm:
+    "*": join.countries.pm
+  pn:
+    "*": join.countries.pn
+  pr:
+    "*": join.countries.pr
+  ps:
+    "*": join.countries.ps
+  pt:
+    "*": join.countries.pt
+  pw:
+    "*": join.countries.pw
+  py:
+    "*": join.countries.py
+  qa:
+    "*": join.countries.qa
+  re:
+    "*": join.countries.re
+  ro:
+    "*": join.countries.ro
+  rs:
+    "*": join.countries.rs
+  ru:
+    "*": join.countries.ru
+  rw:
+    "*": join.countries.rw
+  sa:
+    "*": join.countries.sa
+  sb:
+    "*": join.countries.sb
+  sc:
+    "*": join.countries.sc
+  sd:
+    "*": join.countries.sd
+  se:
+    "*": join.countries.se
+  sg:
+    "*": join.countries.sg
+  sh:
+    "*": join.countries.sh
+  si:
+    "*": join.countries.si
+  sj:
+    "*": join.countries.sj
+  sk:
+    "*": join.countries.sk
+  sl:
+    "*": join.countries.sl
+  sm:
+    "*": join.countries.sm
+  sn:
+    "*": join.countries.sn
+  so:
+    "*": join.countries.so
+  sr:
+    "*": join.countries.sr
+  ss:
+    "*": join.countries.ss
+  st:
+    "*": join.countries.st
+  sv:
+    "*": join.countries.sv
+  sx:
+    "*": join.countries.sx
+  sy:
+    "*": join.countries.sy
+  sz:
+    "*": join.countries.sz
+  tc:
+    "*": join.countries.tc
+  td:
+    "*": join.countries.td
+  tf:
+    "*": join.countries.tf
+  tg:
+    "*": join.countries.tg
+  th:
+    "*": join.countries.th
+  tj:
+    "*": join.countries.tj
+  tk:
+    "*": join.countries.tk
+  tl:
+    "*": join.countries.tl
+  tm:
+    "*": join.countries.tm
+  tn:
+    "*": join.countries.tn
+  to:
+    "*": join.countries.to
+  tr:
+    "*": join.countries.tr
+  tt:
+    "*": join.countries.tt
+  tv:
+    "*": join.countries.tv
+  tw:
+    "*": join.countries.tw
+  tz:
+    "*": join.countries.tz
+  ua:
+    "*": join.countries.ua
+  ug:
+    "*": join.countries.ug
+  um:
+    "*": join.countries.um
+  us:
+    "*": join.countries.us
+  uy:
+    "*": join.countries.uy
+  uz:
+    "*": join.countries.uz
+  va:
+    "*": join.countries.va
+  vc:
+    "*": join.countries.vc
+  ve:
+    "*": join.countries.ve
+  vg:
+    "*": join.countries.vg
+  vi:
+    "*": join.countries.vi
+  vn:
+    "*": join.countries.vn
+  vu:
+    "*": join.countries.vu
+  wf:
+    "*": join.countries.wf
+  ws:
+    "*": join.countries.ws
+  ye:
+    "*": join.countries.ye
+  yt:
+    "*": join.countries.yt
+  za:
+    "*": join.countries.za
+  zm:
+    "*": join.countries.zm
+  zw:
+    "*": join.countries.zw

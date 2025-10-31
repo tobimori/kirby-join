@@ -1,0 +1,12 @@
+label: join.fields.text
+type: writer
+nodes:
+  - headings
+  - paragraph
+  - bulletList
+  - orderedList
+marks:
+  - bold
+  - italic
+headings:
+  - 2

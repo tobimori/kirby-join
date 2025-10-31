@@ -20,6 +20,7 @@
 		"getkirby/composer-installer": "^1.2.1"
 	},
 	"suggest": {
+		"tobimori/kirby-dreamform": "Receive and send applications to JOIN",
 		"tobimori/kirby-queues": "Enable background processing support",
 		"getkirby/cli": "Enable background processing support"
 	},

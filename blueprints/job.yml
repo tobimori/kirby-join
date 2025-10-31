@@ -1,0 +1,104 @@
+title: join.job.title
+image:
+  icon: briefcase
+  query: icon
+  back: transparent
+
+num: 0
+
+buttons:
+  - open
+  - preview
+  - join-view
+
+options:
+  # access
+  changeSlug: false
+  changeStatus: false
+  changeTemplate: false
+  changeTitle: false
+  create: false
+  delete: false
+  duplicate: false
+  # list
+  move: false
+  # preview
+  sort: false
+  # update
+
+columns:
+  - width: 2/3
+    fields:
+      text:
+        extends: join/fields/writer
+        disabled: true
+      line: true
+      workplaceType:
+        type: toggles
+        label: join.fields.workplaceType
+        required: true
+        disabled: true
+        default: ONSITE
+        width: 1/2
+        options:
+          - value: ONSITE
+            text:
+              "*": join.fields.workplaceType.onsite
+          - value: HYBRID
+            text:
+              "*": join.fields.workplaceType.hybrid
+          - value: REMOTE
+            text:
+              "*": join.fields.workplaceType.remote
+      remoteType:
+        type: toggles
+        label: join.fields.remoteType
+        required: true
+        disabled: true
+        default: ANYWHERE
+        width: 1/2
+        options:
+          - value: COUNTRY
+            icon: map
+            text:
+              "*": join.fields.remoteType.country
+          - value: ANYWHERE
+            icon: globe
+            text:
+              "*": join.fields.remoteType.anywhere
+        when:
+          workplaceType: REMOTE
+      office:
+        extends: join/fields/office
+        disabled: true
+      employmentType:
+        extends: join/fields/employment-type
+        disabled: true
+        width: 1/2
+      seniority:
+        extends: join/fields/seniority-level
+        disabled: true
+        width: 1/2
+      salary: join/fields/salary
+      category:
+        extends: join/fields/category
+        disabled: true
+        width: 1/2
+      language: join/fields/language
+      contact: join/fields/contact
+
+  - width: 1/3
+    fields:
+      id:
+        type: text
+        label: join.fields.id
+        icon: id-card
+        disabled: true
+      createdAt: &date
+        label: join.fields.createdAt
+        type: date
+        time: true
+        disabled: true
+      lastUpdatedAt:
+        label: join.fields.lastUpdatedAt
+        <<: *date

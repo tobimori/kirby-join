@@ -1,0 +1,40 @@
+{
+	"name": "tobimori/kirby-join",
+	"description": "Sync data from JOIN to display in Kirby",
+	"type": "kirby-plugin",
+	"license": "proprietary",
+	"homepage": "https://plugins.andkindness.com/join",
+	"authors": [
+		{
+			"name": "Tobias Möritz",
+			"email": "tobias@moeritz.io"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"tobimori\\Join\\": "classes"
+		}
+	},
+	"require": {
+		"php": ">=8.3.0",
+		"getkirby/composer-installer": "^1.2.1"
+	},
+	"suggest": {
+		"tobimori/kirby-queues": "Enable background processing support",
+		"getkirby/cli": "Enable background processing support"
+	},
+	"scripts": {
+		"dist": "composer install --no-dev --optimize-autoloader",
+		"fix": "php-cs-fixer fix"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"allow-plugins": {
+			"getkirby/composer-installer": true
+		}
+	},
+	"extra": {
+		"kirby-cms-path": false
+	},
+	"require-dev": {}
+}

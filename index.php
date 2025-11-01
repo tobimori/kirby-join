@@ -25,7 +25,7 @@ App::plugin(
 		'options' => [
 			'cache' => true,
 			'template' => 'join-job',
-			'ttl' => 3600,
+			'ttl' => 60 * 24,
 			'apiKey' => null,
 			'autoDelete' => true,
 		],

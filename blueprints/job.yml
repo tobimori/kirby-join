@@ -9,8 +9,8 @@ num: 0
 buttons:
   - open
   - preview
-  - join-view
   - join-refresh
+  - join-view
 
 options:
   # access

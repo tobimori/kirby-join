@@ -170,4 +170,31 @@ final class Join
 		self::cacheSet($key, $value, $minutes);
 		return $value;
 	}
+
+	/**
+	 * Fetch all job IDs and cache individual job data
+	 */
+	public static function fetchAndCacheAllJobs(bool $forceFresh = false): array
+	{
+		if ($forceFresh) {
+			self::cacheRemove('job-ids');
+		}
+
+		return self::cacheRemember('job-ids', function () {
+			$response = self::get('/jobs', ['content' => 'true']);
+			if ($response->code() !== 200) {
+				return [];
+			}
+
+			$jobs = $response->json();
+			$jobIds = [];
+
+			foreach ($jobs as $job) {
+				$jobIds[] = $job['id'];
+				self::cacheSet("job.{$job['id']}", $job);
+			}
+
+			return $jobIds;
+		});
+	}
 }

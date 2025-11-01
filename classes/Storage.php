@@ -2,7 +2,6 @@
 
 namespace tobimori\Join;
 
-use Kirby\Cms\App;
 use Kirby\Content\PlainTextStorage;
 use Kirby\Content\VersionId;
 use Kirby\Cms\Language;
@@ -14,6 +13,7 @@ class Storage extends PlainTextStorage
 	protected static array $joinFields =  [
 		'title',
 		'id',
+		'uuid',
 		'description',
 		'createdAt',
 		'lastUpdatedAt',
@@ -23,12 +23,10 @@ class Storage extends PlainTextStorage
 		'categoryId',
 		'seniorityId',
 		'language',
-		'uuid',
 		'office',
 		'salary',
 		'contact'
 	];
-
 
 	protected array $data = [];
 	protected string|null $joinId = null;
@@ -52,19 +50,13 @@ class Storage extends PlainTextStorage
 	public function write(VersionId $versionId, Language $language, array $data): void
 	{
 		$fields = array_map('strtolower', static::$joinFields);
-		ray($data);
-
-		parent::write($versionId, $language, $data);
-	}
-
-	public function exists(VersionId $versionId, Language $language): bool
-	{
-		return parent::exists($versionId, $language) ||  $this->readVirtual() !== [];;
+		$saveData = A::without($data, $fields);
+		parent::write($versionId, $language, $saveData);
 	}
 
 	public function readVirtual(): array
 	{
-		if ($this->data) {
+		if (!empty($this->data)) {
 			return $this->data;
 		}
 
@@ -73,58 +65,43 @@ class Storage extends PlainTextStorage
 		}
 
 		$jobData = $this->fetchJobData($this->joinId);
-		if (!$jobData) {
-			return [];
-		}
-
 		return $this->data = $this->mapJobDataToContent($jobData);
 	}
 
 	protected function fetchJobData(string $joinId): ?array
 	{
-		$cacheKey = "job.{$joinId}";
-		$jobData = Join::cacheGet($cacheKey);
+		return static::fetchAndCacheJobData($joinId);
+	}
 
-		if ($jobData) {
-			return $jobData;
+	/**
+	 * Fetch job data from JOIN API and cache it
+	 */
+	public static function fetchAndCacheJobData(string $joinId, bool $forceFresh = false): ?array
+	{
+		if ($forceFresh) {
+			Join::cacheRemove("job.{$joinId}");
 		}
 
-		try {
-			$response = Join::get("/jobs/{$joinId}");
+		return Join::cacheRemember("job.{$joinId}", function () use ($joinId) {
+			try {
+				$response = Join::get("/jobs/{$joinId}");
 
-			if ($response->code() !== 200) {
-				return null;
+				if ($response->code() !== 200) {
+					return [];
+				}
+
+				return $response->json();
+			} catch (\Exception $e) {
+				return [];
 			}
-
-			$jobData = $response->json();
-			Join::cacheSet($cacheKey, $jobData, 60);
-
-			return $jobData;
-		} catch (\Exception $e) {
-			return null;
-		}
+		});
 	}
 
 	protected function mapJobDataToContent(array $jobData): array
 	{
-		$fields = [
-			'title',
-			'id',
-			'createdAt',
-			'lastUpdatedAt',
-			'workplaceType',
-			'remoteType',
-			'employmentTypeId',
-			'categoryId',
-			'seniorityId',
-			'language'
-		];
+		$content = array_intersect_key($jobData, array_flip(static::$joinFields));
 
-		$content = array_intersect_key($jobData, array_flip($fields));
-
-		if (isset($jobData['description'])) {
-			$content['description'] = str_replace('\\n', '', $jobData['description']);
-		}
+		$content['description'] = str_replace('\\n', '', $jobData['description'] ?? '');
 
 		$structures = [
 			'office' => ['name', 'streetName', 'streetNumber', 'postalCode', 'city', 'countryIso', 'isDefault'],
@@ -133,19 +110,16 @@ class Storage extends PlainTextStorage
 		];
 
 		foreach ($structures as $field => $keys) {
-			if (isset($jobData[$field])) {
-				$content[$field] = Yaml::encode(
-					array_intersect_key($jobData[$field], array_flip($keys))
-				);
-			}
-		}
-
-		foreach ($content as $key => $value) {
-			$content[strtolower($key)] = (string) $value;
+			$content[$field] = isset($jobData[$field])
+				? Yaml::encode(array_intersect_key($jobData[$field], array_flip($keys)))
+				: '';
 		}
 
 		$content['uuid'] = (string) $jobData['id'];
 
-		return $content;
+		return array_combine(
+			array_map('strtolower', array_keys($content)),
+			array_map('strval', $content)
+		);
 	}
 }

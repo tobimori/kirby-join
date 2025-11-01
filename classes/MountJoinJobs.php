@@ -30,14 +30,33 @@ trait MountJoinJobs
 
 		$jobIds = $this->fetchJobIds();
 		$pages = $this->subpages();
+		$template = Join::option('template');
+
+		// auto-delete orphaned job pages if enabled
+		if (Join::option('autoDelete')) {
+			foreach ($pages as $page) {
+				if ($page->intendedTemplate()->name() === $template) {
+					$jobId = $page->content()->id()->value();
+
+					if (!$jobId || !in_array($jobId, $jobIds)) {
+						$page->delete(true);
+						if ($jobId) {
+							Join::cacheRemove("job.{$jobId}");
+						}
+
+						$pages->remove($page);
+					}
+				}
+			}
+		}
 
 		foreach ($jobIds as $jobId) {
 			$slug = "job-{$jobId}"; // TODO: allow customization of slug
 
 			$page = Page::factory([
 				'slug' => $slug,
-				'template' => $tpl = Join::option('template'),
-				'model' => $tpl,
+				'template' => $template,
+				'model' => $template,
 				'parent' => $this,
 				'num' => 0,
 			]);
@@ -61,19 +80,6 @@ trait MountJoinJobs
 			return $this->jobIds;
 		}
 
-		return $this->jobIds = Join::cacheRemember('job-ids', function () {
-			$response = Join::get('/jobs', ['content' => 'true']);
-			if ($response->code() !== 200) {
-				return [];
-			}
-
-			$jobs = $response->json();
-			foreach ($jobs as $job) {
-				$jobIds[] = $job['id'];
-				Join::cacheSet("job.{$job['id']}", $job);
-			}
-
-			return $jobIds;
-		});
+		return $this->jobIds = Join::fetchAndCacheAllJobs();
 	}
 }

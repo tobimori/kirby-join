@@ -10,6 +10,8 @@ Customizing the application workflow, e.g. using screening questions is not supp
 
 Updating job postings is not supported because the API offers a vastly limited feature set. For example, it is not possible to update the parts of a job posting (e.g. Intro, Requirements, Benefits) per part, but just as a whole. However, when doing so, JOIN downgrades the job posting to a single text box 'description-only' mode, which limits the editability in the JOIN backend. This and a few other edge cases is why we decided to not support updating or creating job postings for now. If this is a requirement for your project, please contact us for a custom quote.
 
+Pagination is currently not implemented, which means the maximum number of active jobs being synchronized is 50. Status that are not 'online' are ignored (or deleted, if active). 
+
 ## Get Started
 
 TODO

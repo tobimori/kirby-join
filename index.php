@@ -7,6 +7,10 @@ use Kirby\Data\Json;
 use Kirby\Toolkit\A;
 use Kirby\Filesystem\Dir;
 use Kirby\Filesystem\F;
+use tobimori\Join\Join;
+use tobimori\Join\Storage;
+use tobimori\Join\ViewButtons\JoinRefreshButton;
+use tobimori\Join\ViewButtons\JoinViewButton;
 
 if (
 	version_compare(App::version() ?? '0.0.0', '5.0.0', '<=') === true ||
@@ -23,8 +27,43 @@ App::plugin(
 			'template' => 'join-job',
 			'ttl' => 3600,
 			'apiKey' => null,
+			'autoDelete' => true,
 		],
-		'permissions' => [],
+		'areas' => [
+			'join' => fn() => [
+				'buttons' => [
+					'join-view' => fn($page = null) => new JoinViewButton($page),
+					'join-refresh' => fn($page = null) => new JoinRefreshButton($page),
+				],
+				'requests' => [
+					'refresh' => [
+						'pattern' => 'join/(:any)',
+						'method' => 'POST',
+						'action' => function (string $jobId) {
+							// fetch fresh data from JOIN API (clears cache and refetches)
+							$jobData = Storage::fetchAndCacheJobData($jobId, forceFresh: true);
+
+							return [
+								'success' => !empty($jobData)
+							];
+						}
+					],
+					'refresh-all' => [
+						'pattern' => 'join/refresh-all',
+						'method' => 'POST',
+						'action' => function () {
+							// fetch all jobs and cache them
+							$jobIds = Join::fetchAndCacheAllJobs(forceFresh: true);
+
+							return [
+								'success' => true,
+								'refreshed' => count($jobIds)
+							];
+						}
+					]
+				]
+			]
+		],
 		'blueprints' => [
 			'pages/join-job' => __DIR__ . '/blueprints/job.yml',
 			'join/pages/job' => __DIR__ . '/blueprints/job.yml',

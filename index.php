@@ -20,12 +20,14 @@ App::plugin(
 	extends: [
 		'options' => [
 			'cache' => true,
+			'template' => 'join-job',
 			'ttl' => 3600,
 			'apiKey' => null,
 		],
 		'permissions' => [],
 		'blueprints' => [
 			'pages/join-job' => __DIR__ . '/blueprints/job.yml',
+			'join/pages/job' => __DIR__ . '/blueprints/job.yml',
 			'join/fields/writer' => __DIR__ . '/blueprints/fields/writer.yml',
 			'join/fields/office' => __DIR__ . '/blueprints/fields/office.yml',
 			'join/fields/country' => __DIR__ . '/blueprints/fields/country.yml',

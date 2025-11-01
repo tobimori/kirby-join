@@ -15,7 +15,7 @@ class JobPage extends Page
 			return [];
 		}
 
-		return Join::cacheRemember('seniority-levels', 60 * 24 * 7, fn() => array_map(
+		return Join::cacheRemember('seniority-levels', fn() => array_map(
 			fn($item) => ['text' => $item['name'], 'value' => $item['id']],
 			Join::get("/seniorityLevels", ['language' => $lang])->json()
 		));
@@ -28,7 +28,7 @@ class JobPage extends Page
 			return [];
 		}
 
-		return Join::cacheRemember('employment-types', 60 * 24 * 7, fn() => array_map(
+		return Join::cacheRemember('employment-types',  fn() => array_map(
 			fn($item) => ['text' => $item['name'], 'value' => $item['id']],
 			Join::get("/employmentTypes", ['language' => $lang])->json()
 		));
@@ -41,7 +41,7 @@ class JobPage extends Page
 			return [];
 		}
 
-		return Join::cacheRemember('categories', 60 * 24 * 7, fn() => array_reduce(
+		return Join::cacheRemember('categories', fn() => array_reduce(
 			Join::get("/categories", ['language' => $lang])->json(),
 			fn($options, $category) => array_merge(
 				$options,

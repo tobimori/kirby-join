@@ -1,7 +1,7 @@
 label: join.fields.text
 type: writer
 nodes:
-  - headings
+  - heading
   - paragraph
   - bulletList
   - orderedList

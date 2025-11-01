@@ -160,7 +160,7 @@ final class Join
 	/**
 	 * Get or set a cache value with a callback
 	 */
-	public static function cacheRemember(string $key, int $minutes, callable $callback): mixed
+	public static function cacheRemember(string $key, callable $callback, int $minutes = 3660): mixed
 	{
 		if (self::cacheExists($key)) {
 			return self::cacheGet($key);

@@ -10,6 +10,7 @@ buttons:
   - open
   - preview
   - join-view
+  - join-refresh
 
 options:
   # access
@@ -26,88 +27,94 @@ options:
   sort: false
   # update
 
-columns:
-  - width: 2/3
-    fields:
-      text:
-        extends: join/fields/writer
-        disabled: true
-      line: true
-      workplaceType:
-        type: toggles
-        label: join.fields.workplaceType
-        required: true
-        disabled: true
-        default: ONSITE
-        width: 1/2
-        options:
-          - value: ONSITE
-            text:
-              "*": join.fields.workplaceType.onsite
-          - value: HYBRID
-            text:
-              "*": join.fields.workplaceType.hybrid
-          - value: REMOTE
-            text:
-              "*": join.fields.workplaceType.remote
-      remoteType:
-        type: toggles
-        label: join.fields.remoteType
-        required: true
-        disabled: true
-        default: ANYWHERE
-        width: 1/2
-        options:
-          - value: COUNTRY
-            icon: map
-            text:
-              "*": join.fields.remoteType.country
-          - value: ANYWHERE
-            icon: globe
-            text:
-              "*": join.fields.remoteType.anywhere
-        when:
-          workplaceType: REMOTE
-      category:
-        extends: join/fields/category
-        disabled: true
-      office:
-        extends: join/fields/office
-        width: 1/2
-        disabled: true
-      salary:
-        extends: join/fields/salary
-        disabled: true
-        width: 1/2
-      employmentType:
-        extends: join/fields/employment-type
-        disabled: true
-        width: 1/3
-      seniority:
-        extends: join/fields/seniority-level
-        disabled: true
-        width: 1/3
-      language:
-        extends: join/fields/language
-        disabled: true
-        width: 1/3
-      contact:
-        extends: join/fields/contact
-        disabled: true
+tabs:
+  jobAd:
+    label: join.tabs.jobAd
+    icon: briefcase
+    columns:
+      main:
+        width: 2/3
+        fields:
+          description:
+            extends: join/fields/writer
+            disabled: true
+          line: true
+          workplaceType:
+            type: toggles
+            label: join.fields.workplaceType
+            required: true
+            disabled: true
+            default: ONSITE
+            width: 1/2
+            options:
+              - value: ONSITE
+                text:
+                  "*": join.fields.workplaceType.onsite
+              - value: HYBRID
+                text:
+                  "*": join.fields.workplaceType.hybrid
+              - value: REMOTE
+                text:
+                  "*": join.fields.workplaceType.remote
+          remoteType:
+            type: toggles
+            label: join.fields.remoteType
+            required: true
+            disabled: true
+            default: ANYWHERE
+            width: 1/2
+            options:
+              - value: COUNTRY
+                icon: map
+                text:
+                  "*": join.fields.remoteType.country
+              - value: ANYWHERE
+                icon: globe
+                text:
+                  "*": join.fields.remoteType.anywhere
+            when:
+              workplaceType: REMOTE
+          categoryId:
+            extends: join/fields/category
+            disabled: true
+          office:
+            extends: join/fields/office
+            width: 1/2
+            disabled: true
+          salary:
+            extends: join/fields/salary
+            disabled: true
+            width: 1/2
+          employmentTypeId:
+            extends: join/fields/employment-type
+            disabled: true
+            width: 1/3
+          seniorityId:
+            extends: join/fields/seniority-level
+            disabled: true
+            width: 1/3
+          language:
+            extends: join/fields/language
+            disabled: true
+            width: 1/3
+          contact:
+            extends: join/fields/contact
+            disabled: true
 
-  - width: 1/3
-    sticky: true
-    fields:
-      id:
-        type: text
-        label: join.fields.id
-        icon: id-card
-        disabled: true
-      createdAt: &date
-        label: join.fields.createdAt
-        type: date
-        time: true
-        disabled: true
-      lastUpdatedAt:
-        label: join.fields.lastUpdatedAt
-        <<: *date
+      sidebar:
+        width: 1/3
+        sticky: true
+        fields:
+          id:
+            type: text
+            label: join.fields.id
+            icon: id-card
+            disabled: true
+          createdAt: &date
+            label: join.fields.createdAt
+            type: date
+            time: true
+            disabled: true
+          lastUpdatedAt:
+            label: join.fields.lastUpdatedAt
+            <<: *date

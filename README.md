@@ -1,8 +1,6 @@
 # JOIN for Kirby CMS
 
-JOIN is an advanced recruiting software & applicant tracking system provided as SaaS. This plugin a sophisticated integration for Kirby CMS. 
-
-**View job postings from the panel, display them on your site and send applications to JOIN with the custom DreamForm Action.**
+JOIN is an advanced recruiting software & applicant tracking system provided as SaaS. This plugin provides a sophisticated integration for Kirby CMS: **View job postings from the panel, display them on your site and send applications to JOIN with the custom DreamForm Action.**
 
 This plugin requires a [paid Advanced or Enterprise subscription to JOIN](https://join.com/pricing); it is not included in the free plan.
 

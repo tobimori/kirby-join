@@ -2,13 +2,13 @@
 
 namespace tobimori\Join;
 
-use Kirby\Cms\App;
 use Kirby\Cms\Pages;
 use Kirby\Cms\Page;
 
 trait MountJoinJobs
 {
 	protected Pages|null $subpages = null;
+	protected array|null $jobIds = null;
 
 	/**
 	 * Returns the physical subpages of the page
@@ -22,6 +22,9 @@ trait MountJoinJobs
 		return $this->subpages = Pages::factory($this->inventory()['children'], $this);
 	}
 
+	/**
+	 * Returns all children of the page
+	 */
 	public function children(): Pages
 	{
 		if ($this->children instanceof Pages) {
@@ -71,8 +74,6 @@ trait MountJoinJobs
 
 		return $this->children = $pages;
 	}
-
-	protected array|null $jobIds = null;
 
 	protected function fetchJobIds(): array
 	{

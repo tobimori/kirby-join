@@ -128,8 +128,9 @@ final class Join
 	/**
 	 * Set a value in cache
 	 */
-	public static function cacheSet(string $key, mixed $value, int $minutes = 60): bool
+	public static function cacheSet(string $key, mixed $value, int|null $minutes = null): bool
 	{
+		$minutes = $minutes ?? self::option('ttl');
 		return self::cache()->set($key, $value, $minutes);
 	}
 
@@ -160,7 +161,7 @@ final class Join
 	/**
 	 * Get or set a cache value with a callback
 	 */
-	public static function cacheRemember(string $key, callable $callback, int $minutes = 3660): mixed
+	public static function cacheRemember(string $key, callable $callback, int|null $minutes = null): mixed
 	{
 		if (self::cacheExists($key)) {
 			return self::cacheGet($key);

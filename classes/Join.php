@@ -39,7 +39,7 @@ final class Join
 	 * @param array<string, mixed> $data
 	 * @param array<string, string> $query
 	 */
-	public static function request(string $method = "GET", string $endpoint, array $data = [], array $query = [])
+	public static function request(string $method = "GET", string $endpoint = '/', array $data = [], array $query = [])
 	{
 		$apiKey = self::option('apiKey');
 		if (!$apiKey) {
@@ -130,7 +130,7 @@ final class Join
 	 */
 	public static function cacheSet(string $key, mixed $value, int|null $minutes = null): bool
 	{
-		$minutes = $minutes ?? self::option('ttl');
+		$minutes ??= self::option('ttl');
 		return self::cache()->set($key, $value, $minutes);
 	}
 

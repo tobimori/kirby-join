@@ -1,8 +1,8 @@
-import JoinRefreshButton from "./components/JoinRefreshButton.vue"
+import RefreshButton from "./components/refresh-button.vue"
 
 panel.plugin("tobimori/join", {
 	components: {
-		"k-join-refresh-button": JoinRefreshButton
+		"k-join-refresh-button": RefreshButton
 	},
 	icons: {
 		join: `<path d="M23.162 8.258H21.77v3.811L19.137 8.49a.58.58 0 0 0-.445-.234l-1.94.003v7.619h2.23v-3.802l2.628 3.576c.1.134.268.218.451.218h1.1a.827.827 0 0 0 .839-.814V9.072a.826.826 0 0 0-.838-.814m-12.55 3.818c0-.899-.754-1.631-1.68-1.631-.927 0-1.68.732-1.68 1.63 0 .9.753 1.63 1.68 1.63s1.68-.73 1.68-1.63zm2.236-.003c0 2.097-1.752 3.797-3.915 3.797-2.161 0-3.914-1.7-3.914-3.797s1.753-3.798 3.915-3.798 3.914 1.7 3.914 3.798m.557-6.258v1.35h2.23V5h-1.394a.824.824 0 0 0-.836.815m0 10.055h2.23V8.266h-2.23zM3.07 8.266h1.39v5.44c.002 2.39-1.996 4.328-4.46 4.328V15.87c1.23 0 2.23-.97 2.23-2.163V9.083c0-.45.376-.817.84-.817"/>`,

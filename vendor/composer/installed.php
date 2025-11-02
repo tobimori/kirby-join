@@ -3,11 +3,11 @@
         'name' => 'tobimori/kirby-join',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '9d931121d487a538391d7181b58323d86942bffa',
+        'reference' => '10e75e2ccb7ad75b75ec7827e4444fe56280a0c6',
         'type' => 'kirby-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => true,
+        'dev' => false,
     ),
     'versions' => array(
         'getkirby/composer-installer' => array(
@@ -22,7 +22,7 @@
         'tobimori/kirby-join' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9d931121d487a538391d7181b58323d86942bffa',
+            'reference' => '10e75e2ccb7ad75b75ec7827e4444fe56280a0c6',
             'type' => 'kirby-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

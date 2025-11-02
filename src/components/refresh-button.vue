@@ -35,15 +35,23 @@ export default {
 			const panel = usePanel()
 
 			try {
+				let response
 				// if jobId is null, refresh all jobs
 				if (!this.jobId) {
-					await panel.post('join/refresh-all')
-					panel.notification.success(panel.t("join.buttons.refresh.all.success"))
+					response = await panel.post('join/refresh-all')
 				} else {
-					await panel.post(`join/${this.jobId}`)
-					panel.notification.success(panel.t("join.buttons.refresh.success"))
+					response = await panel.post(`join/${this.jobId}`)
 				}
 
+				if (response.success === false) {
+					throw new Error(panel.t("join.buttons.refresh.error"))
+				}
+
+				panel.notification.success(
+					!this.jobId
+						? panel.t("join.buttons.refresh.all.success")
+						: panel.t("join.buttons.refresh.success")
+				)
 				await panel.reload()
 			} catch (error) {
 				panel.notification.error({

@@ -14,5 +14,7 @@ return array(
     'tobimori\\Join\\Join' => $baseDir . '/classes/Join.php',
     'tobimori\\Join\\Models\\JobPage' => $baseDir . '/classes/Models/JobPage.php',
     'tobimori\\Join\\MountJoinJobs' => $baseDir . '/classes/MountJoinJobs.php',
+    'tobimori\\Join\\Storage' => $baseDir . '/classes/Storage.php',
+    'tobimori\\Join\\ViewButtons\\JoinRefreshButton' => $baseDir . '/classes/ViewButtons/JoinRefreshButton.php',
     'tobimori\\Join\\ViewButtons\\JoinViewButton' => $baseDir . '/classes/ViewButtons/JoinViewButton.php',
 );

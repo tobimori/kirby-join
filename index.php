@@ -40,24 +40,20 @@ App::plugin(
 						'pattern' => 'join/(:any)',
 						'method' => 'POST',
 						'action' => function (string $jobId) {
+							if ($jobId === 'refresh-all') {
+								$jobIds = Join::fetchAndCacheAllJobs(true);
+
+								return [
+									'success' => true,
+									'refreshed' => count($jobIds)
+								];
+							}
+
 							// fetch fresh data from JOIN API (clears cache and refetches)
 							$jobData = Storage::fetchAndCacheJobData($jobId, forceFresh: true);
 
 							return [
 								'success' => !empty($jobData)
-							];
-						}
-					],
-					'refresh-all' => [
-						'pattern' => 'join/refresh-all',
-						'method' => 'POST',
-						'action' => function () {
-							// fetch all jobs and cache them
-							$jobIds = Join::fetchAndCacheAllJobs(forceFresh: true);
-
-							return [
-								'success' => true,
-								'refreshed' => count($jobIds)
 							];
 						}
 					]

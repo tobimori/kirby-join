@@ -43,9 +43,15 @@ checksums:
     fields.language: 0a8f7cdeb3c6ffeca70cbcca08ba9556
     fields.category: 0c9b0bbb47e8a11604c0869c844acefb
     fields.contact: 2a24c9f5a791a6472788eb50d2fb9ccb
+    fields.contact.name: 9368b5a047572b6051f334af5aa76819
     fields.contact.email: 8c7ba7f7e40a8c848fc45ac8af985b81
-    fields.contact.phone: 4514bfd097e5ea5fc6d7cd1190e791ad
-    fields.contact.address: f5a3d2d8be5ba9400b54da7fc217abe7
+    fields.contact.position: 8ba464c700080c55106d9e680b4b37e5
+    buttons.openInJoin: dec3ed556bbfc810a12fb3c4ef4ac969
+    buttons.refresh: a1bec5cd52a855fb33f42357d3b7bb14
+    buttons.refresh.all: 412c281078e5e9a2a0e116bec8a6ba17
+    buttons.refresh.success: de5db0bb56eb3a9b067d3b9bd094446e
+    buttons.refresh.all.success: 59f5959ad826fb06218bdb62a0a0ba09
+    buttons.refresh.error: 18a9b3552b938625c746f987261905b9
     countries.de: bafa88e27d33a79b05f41d0b98b9a813
     countries.us: dd913e1ce67e83963aab94c85b83febf
     countries.ad: 164950fa5d3f338a7787dd1666587058

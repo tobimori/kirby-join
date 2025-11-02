@@ -31,6 +31,11 @@ class Storage extends PlainTextStorage
 	protected array $data = [];
 	protected string|null $joinId = null;
 
+	public function joinId(): string|null
+	{
+		return $this->joinId;
+	}
+
 	public function setJoinId(string $joinId): Storage
 	{
 		$this->joinId = $joinId;

@@ -2,8 +2,11 @@
 
 namespace tobimori\Join;
 
+use Kirby\Cms\App;
+use Kirby\Cms\Language;
 use Kirby\Cms\Pages;
 use Kirby\Cms\Page;
+use Kirby\Content\VersionId;
 
 trait MountJoinJobs
 {
@@ -35,24 +38,6 @@ trait MountJoinJobs
 		$pages = $this->subpages();
 		$template = Join::option('template');
 
-		// auto-delete orphaned job pages if enabled
-		if (Join::option('autoDelete')) {
-			foreach ($pages as $page) {
-				if ($page->intendedTemplate()->name() === $template) {
-					$jobId = $page->content()->id()->value();
-
-					if (!$jobId || !in_array($jobId, $jobIds)) {
-						$page->delete(true);
-						if ($jobId) {
-							Join::cacheRemove("job.{$jobId}");
-						}
-
-						$pages->remove($page);
-					}
-				}
-			}
-		}
-
 		foreach ($jobIds as $jobId) {
 			$slug = "job-{$jobId}"; // TODO: allow customization of slug
 
@@ -70,6 +55,22 @@ trait MountJoinJobs
 			$storage->setJoinId($jobId);
 
 			$pages->add($page);
+		}
+
+		// auto-delete orphaned job pages if enabled
+		if (Join::option('autoDelete')) {
+			foreach ($pages as $page) {
+				if ($page->intendedTemplate()->name() === $template && !$page->storage() instanceof Storage) {
+					App::instance()->impersonate('kirby', fn() => $page->storage()->delete(VersionId::latest(), Language::single()));
+					if ($jobId) {
+						Join::cacheRemove("job.{$jobId}");
+					}
+
+					$pages->remove($page);
+				}
+			}
+
+			$this->subpages = $pages;
 		}
 
 		return $this->children = $pages;

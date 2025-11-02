@@ -37,6 +37,8 @@ class ComposerStaticInitf4e6533003b14a1a9417d39cd2ebfef3
         'tobimori\\Join\\Join' => __DIR__ . '/../..' . '/classes/Join.php',
         'tobimori\\Join\\Models\\JobPage' => __DIR__ . '/../..' . '/classes/Models/JobPage.php',
         'tobimori\\Join\\MountJoinJobs' => __DIR__ . '/../..' . '/classes/MountJoinJobs.php',
+        'tobimori\\Join\\Storage' => __DIR__ . '/../..' . '/classes/Storage.php',
+        'tobimori\\Join\\ViewButtons\\JoinRefreshButton' => __DIR__ . '/../..' . '/classes/ViewButtons/JoinRefreshButton.php',
         'tobimori\\Join\\ViewButtons\\JoinViewButton' => __DIR__ . '/../..' . '/classes/ViewButtons/JoinViewButton.php',
     );
 

@@ -11,12 +11,18 @@ use tobimori\Join\Join;
 use tobimori\Join\Storage;
 use tobimori\Join\ViewButtons\JoinRefreshButton;
 use tobimori\Join\ViewButtons\JoinViewButton;
+use tobimori\Join\Actions\ApplyAction;
 
 if (
 	version_compare(App::version() ?? '0.0.0', '5.0.0', '<=') === true ||
 	version_compare(App::version() ?? '0.0.0', '6.0.0', '>') === true
 ) {
 	throw new Exception('JOIN for Kirby CMS requires Kirby 5');
+}
+
+// Register DreamForm action if DreamForm is installed
+if (class_exists('tobimori\DreamForm\DreamForm')) {
+	\tobimori\DreamForm\DreamForm::register(ApplyAction::class);
 }
 
 App::plugin(

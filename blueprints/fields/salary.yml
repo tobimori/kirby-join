@@ -23,15 +23,15 @@ fields:
     label: join.fields.salary.frequency
     type: select
     options:
-      HOURLY:
+      PER_HOUR:
         "*": join.fields.salary.frequency.hourly
-      DAILY:
+      PER_DAY:
         "*": join.fields.salary.frequency.daily
-      WEEKLY:
+      PER_WEEK:
         "*": join.fields.salary.frequency.weekly
-      MONTHLY:
+      PER_MONTH:
         "*": join.fields.salary.frequency.monthly
-      YEARLY:
+      PER_YEAR:
         "*": join.fields.salary.frequency.yearly
   isShownOnJobAd:
     label: join.fields.salary.isShownOnJobAd

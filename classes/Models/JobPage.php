@@ -10,7 +10,7 @@ class JobPage extends Page
 {
 	public static function getSeniorityLevels(): array
 	{
-		$lang = App::instance()->user()?->language();
+		$lang = App::instance()->user()?->language() ?? App::instance()->language()?->code();
 		if (!$lang) {
 			return [];
 		}
@@ -23,7 +23,7 @@ class JobPage extends Page
 
 	public static function getEmploymentTypes(): array
 	{
-		$lang = App::instance()->user()?->language();
+		$lang = App::instance()->user()?->language() ?? App::instance()->language()?->code();
 		if (!$lang) {
 			return [];
 		}
@@ -36,7 +36,7 @@ class JobPage extends Page
 
 	public static function getCategories(): array
 	{
-		$lang = App::instance()->user()?->language();
+		$lang = App::instance()->user()?->language() ?? App::instance()->language()?->code();
 		if (!$lang) {
 			return [];
 		}

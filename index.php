@@ -34,6 +34,7 @@ App::plugin(
 			'ttl' => 60 * 24,
 			'apiKey' => null,
 			'autoDelete' => true,
+			'flushCache' => fn() => App::instance()->cache('pages')->flush(),
 		],
 		'areas' => [
 			'join' => fn() => [
@@ -48,6 +49,10 @@ App::plugin(
 						'action' => function (string $jobId) {
 							if ($jobId === 'refresh-all') {
 								$jobIds = Join::fetchAndCacheAllJobs(true);
+								Join::flushCache([
+									'scope' => 'all',
+									'jobIds' => $jobIds
+								]);
 
 								return [
 									'success' => true,
@@ -55,8 +60,12 @@ App::plugin(
 								];
 							}
 
-							// fetch fresh data from JOIN API (clears cache and refetches)
 							$jobData = Storage::fetchAndCacheJobData($jobId, forceFresh: true);
+							Join::flushCache([
+								'scope' => 'job',
+								'jobId' => $jobId,
+								'jobData' => $jobData
+							]);
 
 							return [
 								'success' => !empty($jobData)

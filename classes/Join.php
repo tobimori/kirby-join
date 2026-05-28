@@ -151,6 +151,22 @@ final class Join
 	}
 
 	/**
+	 * Flush project caches after JOIN data changes
+	 *
+	 * @param array<string, mixed> $context
+	 */
+	public static function flushCache(array $context = []): mixed
+	{
+		$callback = App::instance()->option('tobimori.join.flushCache');
+
+		if (is_callable($callback)) {
+			return $callback($context);
+		}
+
+		return $callback;
+	}
+
+	/**
 	 * Check if a cache key exists
 	 */
 	public static function cacheExists(string $key): bool

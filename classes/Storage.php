@@ -28,7 +28,7 @@ class Storage extends PlainTextStorage
 		'contact'
 	];
 
-	protected array $data = [];
+	protected array|null $data = null;
 	protected string|null $joinId = null;
 
 	public function joinId(): string|null
@@ -61,45 +61,50 @@ class Storage extends PlainTextStorage
 
 	public function readVirtual(): array
 	{
-		if (!empty($this->data)) {
-			return $this->data;
-		}
-
 		if (!$this->joinId) {
 			return [];
 		}
 
-		$jobData = $this->fetchJobData($this->joinId);
-		return $this->data = $this->mapJobDataToContent($jobData);
+		if ($this->data === null) {
+			$jobData = $this->fetchJobData($this->joinId);
+			$this->data = empty($jobData) ? [] : $this->mapJobDataToContent($jobData);
+		}
+
+		return $this->data;
 	}
 
-	protected function fetchJobData(string $joinId): ?array
+	protected function fetchJobData(string $joinId): array
 	{
 		return static::fetchAndCacheJobData($joinId);
 	}
 
 	/**
 	 * Fetch job data from JOIN API and cache it
+	 *
+	 * Failed requests are not cached and keep the cached job data,
+	 * so a failed refresh does not replace the job with empty data
 	 */
-	public static function fetchAndCacheJobData(string $joinId, bool $forceFresh = false): ?array
+	public static function fetchAndCacheJobData(string $joinId, bool $forceFresh = false): array
 	{
-		if ($forceFresh) {
-			Join::cacheRemove("job.{$joinId}");
+		$key = "job.{$joinId}";
+
+		if (!$forceFresh && $jobData = Join::cacheGet($key)) {
+			return $jobData;
 		}
 
-		return Join::cacheRemember("job.{$joinId}", function () use ($joinId) {
-			try {
-				$response = Join::get("/jobs/{$joinId}");
+		try {
+			$response = Join::get("/jobs/{$joinId}");
+		} catch (\Exception $e) {
+			return [];
+		}
 
-				if ($response->code() !== 200) {
-					return [];
-				}
+		$jobData = $response->code() === 200 ? $response->json() : null;
+		if (empty($jobData)) {
+			return [];
+		}
 
-				return $response->json();
-			} catch (\Exception $e) {
-				return [];
-			}
-		});
+		Join::cacheSet($key, $jobData);
+		return $jobData;
 	}
 
 	protected function mapJobDataToContent(array $jobData): array

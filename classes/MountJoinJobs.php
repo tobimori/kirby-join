@@ -7,6 +7,7 @@ use Kirby\Cms\Language;
 use Kirby\Cms\Pages;
 use Kirby\Cms\Page;
 use Kirby\Content\VersionId;
+use Kirby\Toolkit\Str;
 
 trait MountJoinJobs
 {
@@ -38,7 +39,7 @@ trait MountJoinJobs
 		$pages = $this->subpages();
 		$template = Join::option('template');
 
-		foreach ($jobIds as $jobId) {
+		foreach ($jobIds ?? [] as $jobId) {
 			$slug = "job-{$jobId}"; // TODO: allow customization of slug
 
 			$page = Page::factory([
@@ -61,9 +62,12 @@ trait MountJoinJobs
 		if (Join::option('autoDelete')) {
 			foreach ($pages as $page) {
 				if ($page->intendedTemplate()->name() === $template && !$page->storage() instanceof Storage) {
-					App::instance()->impersonate('kirby', fn() => $page->storage()->delete(VersionId::latest(), Language::single()));
-					if ($jobId) {
-						Join::cacheRemove("job.{$jobId}");
+					// if the job list could not be loaded, hide the job pages but keep their content
+					if ($jobIds !== null) {
+						App::instance()->impersonate('kirby', fn() => $page->storage()->delete(VersionId::latest(), Language::single()));
+						if ($orphanJobId = Str::after($page->slug(), 'job-')) {
+							Join::cacheRemove("job.{$orphanJobId}");
+						}
 					}
 
 					$pages->remove($page);
@@ -76,7 +80,7 @@ trait MountJoinJobs
 		return $this->children = $pages;
 	}
 
-	protected function fetchJobIds(): array
+	protected function fetchJobIds(): array|null
 	{
 		if ($this->jobIds) {
 			return $this->jobIds;

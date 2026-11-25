@@ -49,6 +49,10 @@ App::plugin(
 						'action' => function (string $jobId) {
 							if ($jobId === 'refresh-all') {
 								$jobIds = Join::fetchAndCacheAllJobs(true);
+								if ($jobIds === null) {
+									return ['success' => false];
+								}
+
 								Join::flushCache([
 									'scope' => 'all',
 									'jobIds' => $jobIds

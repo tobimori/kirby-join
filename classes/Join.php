@@ -190,28 +190,42 @@ final class Join
 
 	/**
 	 * Fetch all job IDs and cache individual job data
+	 *
+	 * Returns null if the request fails. Errors and empty lists are not cached,
+	 * so a failed refresh keeps the cached list
 	 */
-	public static function fetchAndCacheAllJobs(bool $forceFresh = false): array
+	public static function fetchAndCacheAllJobs(bool $forceFresh = false): array|null
 	{
-		if ($forceFresh) {
-			self::cacheRemove('job-ids');
+		if (!$forceFresh && $jobIds = self::cacheGet('job-ids')) {
+			return $jobIds;
 		}
 
-		return self::cacheRemember('job-ids', function () {
+		try {
 			$response = self::get('/jobs', ['content' => 'true']);
-			if ($response->code() !== 200) {
-				return [];
-			}
+		} catch (Exception $e) {
+			// configuration errors like a missing API key must not look like a failed request
+			throw $e;
+		} catch (\Exception $e) {
+			return null;
+		}
 
-			$jobs = $response->json();
-			$jobIds = [];
+		$jobs = $response->code() === 200 ? $response->json() : null;
+		if (!is_array($jobs)) {
+			return null;
+		}
 
-			foreach ($jobs as $job) {
-				$jobIds[] = $job['id'];
-				self::cacheSet("job.{$job['id']}", $job);
-			}
+		$jobIds = [];
+		foreach ($jobs as $job) {
+			$jobIds[] = $job['id'];
+			self::cacheSet("job.{$job['id']}", $job);
+		}
 
-			return $jobIds;
-		});
+		if ($jobIds === []) {
+			self::cacheRemove('job-ids');
+		} else {
+			self::cacheSet('job-ids', $jobIds);
+		}
+
+		return $jobIds;
 	}
 }

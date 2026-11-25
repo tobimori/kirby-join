@@ -3,7 +3,7 @@
 namespace tobimori\Join\ViewButtons;
 
 use I18n;
-use Kirby\Panel\Ui\Buttons\ViewButton;
+use Kirby\Panel\Ui\Button\ViewButton;
 use tobimori\Join\Join;
 use tobimori\Join\Models\JobPage;
 

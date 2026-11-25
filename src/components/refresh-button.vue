@@ -1,6 +1,8 @@
 <template>
 	<k-button
 		v-bind="$props"
+		:class="$attrs.class"
+		:style="$attrs.style"
 		:icon="currentIcon"
 		:disabled="isLoading"
 		@click="onClick"
@@ -8,8 +10,6 @@
 </template>
 
 <script>
-import { usePanel } from "kirbyuse"
-
 export default {
 	extends: "k-view-button",
 	props: {
@@ -32,7 +32,7 @@ export default {
 			}
 
 			this.isLoading = true
-			const panel = usePanel()
+			const panel = this.$panel
 
 			try {
 				let response

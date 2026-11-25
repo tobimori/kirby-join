@@ -22,7 +22,7 @@ trait MountJoinJobs
 			return $this->subpages;
 		}
 
-		return $this->subpages = Pages::factory($this->inventory()['children'], $this);
+		return $this->subpages = Pages::factory($this->inventory()->children(), $this);
 	}
 
 	/**

@@ -35,7 +35,12 @@
 		}
 	},
 	"extra": {
-		"kirby-cms-path": false
+		"kirby-cms-path": false,
+		"kirby": {
+			"compatible": "^6.0"
+		}
 	},
-	"require-dev": {}
+	"require-dev": {
+		"getkirby/cms": "^6.0"
+	}
 }
